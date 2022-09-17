@@ -42,7 +42,7 @@ def accuracy_f2(output, names, topk=(1,2,5), tags_inv):
     return top_keys
 
 
-def evaluate(
+def c_evaluate(
     encoder, 
     finetuned_head,
     eval_dataset,

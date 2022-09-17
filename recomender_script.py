@@ -25,16 +25,16 @@ from simclr import SimCLR
 from .modules import RegressionRecomend
 
 
-from .data import ContrastiveDataset
-from .datasets.recomendations import RECOMENDATIONS
-from .datasets.audio import AUDIO
-from .datasets.eval_dataset import EvalDataset
-from .datasets.test_dataset import TestDataset
+from data import ContrastiveDataset
+from datasets.recomendations import RECOMENDATIONS
+from datasets.audio import AUDIO
+from datasets.eval_dataset import EvalDataset
+from datasets.test_dataset import TestDataset
 from torch.utils.data import DataLoader
 
 
-from .evals.recomend_eval import evaluate
-from .evals.recomend_predict import predict
+from evals.recomend_eval import evaluate
+from evals.recomend_predict import predict
 
 #------------------------------------
 
@@ -182,7 +182,7 @@ def main(args):
             input_shape=(1, args.audio_length),
             transform=None,
         )
-        print( evaluate(
+        print( r_evaluate(
             module,
             eval_dataset,
             device=args.accelerator
@@ -195,7 +195,7 @@ def main(args):
             transform=None,
         )
 
-        print(predict(
+        print( r_predict(
             module,
             predict_dataset,
             args.accelerator,

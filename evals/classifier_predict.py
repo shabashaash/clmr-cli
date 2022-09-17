@@ -23,7 +23,7 @@ def accuracy_f2(output, names, topk=(1,2,5), tags):
     return top_keys
 
 
-def predict(
+def c_predict(
     encoder,
     finetuned_head,
     test_dataset,

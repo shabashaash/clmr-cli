@@ -163,7 +163,7 @@ def main(args):
             input_shape=(1, args.audio_length),
             transform=None,
         )
-        print( evaluate(
+        print( c_evaluate(
             module.encoder,
             module.model,
             eval_dataset,
@@ -182,7 +182,7 @@ def main(args):
             transform=None,
         )
 
-        print(predict(
+        print( c_predict(
             module.encoder,
             module.model,
             eval_dataset,

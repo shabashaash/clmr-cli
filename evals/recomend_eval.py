@@ -18,7 +18,7 @@ def stable_encoding(batch, encoder):
 
 
 
-def evaluate(
+def r_evaluate(
     whole_model,
     eval_dataset,
     device

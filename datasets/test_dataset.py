@@ -6,7 +6,7 @@ from typing import Tuple, List
 
 
 
-class EvalDataset(Dataset):
+class TestDataset(Dataset):
     def __init__(self, dataset: Dataset, input_shape: List[int], transform: Compose):
         self.dataset = dataset
         self.transform = transform
