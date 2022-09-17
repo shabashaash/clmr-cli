@@ -1,6 +1,6 @@
 # infra options
 # gpus: 0
-accelerator: "cuda:0" # use ddp for gpus > 1. Also see PyTorch Lightning documentation on distributed training.
+# accelerator: "cuda:0" # use ddp for gpus > 1. Also see PyTorch Lightning documentation on distributed training.
 workers: 0 # I recommend tuning this parameter for faster data augmentation processing
 dataset_dir: "./data"
 src_ext_audio: ".wav"
