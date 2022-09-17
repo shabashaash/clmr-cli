@@ -1,0 +1,60 @@
+# infra options
+# gpus: 0
+accelerator: "cuda:0" # use ddp for gpus > 1. Also see PyTorch Lightning documentation on distributed training.
+workers: 0 # I recommend tuning this parameter for faster data augmentation processing
+dataset_dir: "./data"
+src_ext_audio: ".wav"
+# train options
+seed: 42
+batch_size: 48
+# max_epochs: 200
+# dataset: "playlists" 
+supervised: 0 # train with supervised baseline
+
+# SimCLR model options
+projection_dim: 64 #128? # Projection dim. of SimCLR projector 
+
+# loss options
+optimizer: "Adam" # or LARS (experimental)
+learning_rate: 0.0003
+weight_decay: 1.0e-6 # "optimized using LARS [...] and weight decay of 10−6"
+temperature: 0.5 # see appendix B.7.: Optimal temperature under different batch sizes
+
+# reload options
+checkpoint_path: "" # set to the directory containing `checkpoint_##.tar`
+
+# (classifier) logistic regression options
+classifier_mlp: 0
+classifier_checkpoint_path: ""
+classifier_max_epochs: 200
+classifier_batch_size: 256
+classifier_learning_rate: 0.001
+n_classes: -1
+playlist_paths: ""
+labels_file_path: ""
+
+# audio data augmentation options
+audio_length: 59049
+sample_rate: 22050
+transforms_polarity: 0.8
+transforms_noise: 0.01
+transforms_gain: 0.3
+transforms_filters: 0.8
+transforms_delay: 0.3
+transforms_pitch: 0.6
+transforms_reverb: 0.6
+
+#cli specific
+mode: "predict"
+model: "full" #full - classes and recomend, recomend - only recomend score, classes - return topK labels
+topK: 5
+predict_folder: "./test/"
+
+#(recomender) logistic regression options
+recomender_mlp: 0
+recomender_checkpoint_path: ""
+recomender_max_epochs: 200
+recomender_batch_size: 256
+recomender_learning_rate: 0.001
+t_mode: True
+playlist_path : ""
