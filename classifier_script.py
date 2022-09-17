@@ -61,6 +61,9 @@ def main(args):
 
     n_classes = len(st_labels)
 
+
+    print("n_classes", n_classes)
+
     pl.seed_everything(args.seed)
     encoder = SampleCNN(
         strides=[3, 3, 3, 3, 3, 3, 3, 3, 3],
