@@ -31,8 +31,8 @@ from datasets.test_dataset import TestDataset
 from torch.utils.data import DataLoader
 
 
-from evals.recomend_eval import evaluate
-from evals.recomend_predict import predict
+from evals.recomend_eval import r_evaluate
+from evals.recomend_predict import r_predict
 
 #------------------------------------
 

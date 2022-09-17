@@ -31,8 +31,8 @@ from datasets.test_dataset import TestDataset
 from torch.utils.data import DataLoader
 
 
-from evals.classifier_eval import evaluate
-from evals.classifier_predict import predict
+from evals.classifier_eval import c_evaluate
+from evals.classifier_predict import c_predict
 
 from glob import glob
 #------------------------------------
