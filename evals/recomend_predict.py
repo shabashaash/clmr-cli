@@ -26,8 +26,8 @@ def accuracy_f2(output, names, r_st_labels, topk=(1,2,5)):
 
 
 def r_predict(
-    whole_model: nn.Module,
-    test_dataset: Dataset,
+    whole_model
+    test_dataset
     device,
     model,
     topK,
