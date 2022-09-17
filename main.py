@@ -2,6 +2,8 @@ import argparse
 from pytorch_lightning import Trainer
 from classifier_script import main as cmain
 from recomender_script import main as rmain
+from utils import yaml_config_hook
+
 
 if __name__ == "__main__":
 
