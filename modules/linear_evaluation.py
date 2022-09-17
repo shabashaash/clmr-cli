@@ -28,15 +28,7 @@ class LinearEvaluation(LightningModule):
         self.encoder = encoder
         self.hidden_dim = hidden_dim
         self.output_dim = output_dim
-
-        if self.hparams.finetuner_mlp:
-            self.model = nn.Sequential(
-                nn.Linear(self.hidden_dim, self.hidden_dim),
-                nn.ReLU(),
-                nn.Linear(self.hidden_dim, self.output_dim),
-            )
-        else:
-            self.model = nn.Sequential(nn.Linear(self.hidden_dim, self.output_dim))
+        self.model = nn.Sequential(nn.Linear(self.hidden_dim, self.output_dim))
         self.criterion = self.configure_criterion()
 
 #         self.average_precision = torchmetrics.AveragePrecision(pos_label=1)
