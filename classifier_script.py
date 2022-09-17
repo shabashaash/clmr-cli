@@ -9,10 +9,10 @@ from pytorch_lightning.callbacks import EarlyStopping
 from pytorch_lightning import Trainer
 
 
-from .models import SampleCNN
+from models import SampleCNN
 
 
-from .utils import (
+from utils import (
     load_encoder_checkpoint, 
     load_finetuner_checkpoint
 )
@@ -31,8 +31,8 @@ from datasets.test_dataset import TestDataset
 from torch.utils.data import DataLoader
 
 
-from .evals.classifier_eval import evaluate
-from .evals.classifier_predict import predict
+from evals.classifier_eval import evaluate
+from evals.classifier_predict import predict
 
 from glob import glob
 #------------------------------------
