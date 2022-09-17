@@ -24,15 +24,15 @@ from modules import LinearEvaluation
 
 
 from data import ContrastiveDataset
-from datasets.playlists import PLAYLISTS
-from datasets.audio import AUDIO
-from datasets.eval_dataset import EvalDataset
-from datasets.test_dataset import TestDataset
+from .datasets.playlists import PLAYLISTS
+from .datasets.audio import AUDIO
+from .datasets.eval_dataset import EvalDataset
+from .datasets.test_dataset import TestDataset
 from torch.utils.data import DataLoader
 
 
-from evals.classifier_eval import evaluate
-from evals.classifier_predict import predict
+from .evals.classifier_eval import evaluate
+from .evals.classifier_predict import predict
 
 from glob import glob
 #------------------------------------
