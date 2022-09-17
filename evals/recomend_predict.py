@@ -15,7 +15,7 @@ def stable_encoding(batch, encoder):
 
     return h0
 
-def accuracy_f2(output, names, topk=(1,2,5), r_st_labels):
+def accuracy_f2(output, names, r_st_labels, topk=(1,2,5)):
     maxk = max(topk)
     topkeys, pred = output.topk(maxk, dim=1, largest=True, sorted=True)
     topkeys = topkeys.numpy().tolist()
@@ -85,7 +85,7 @@ def r_predict(
 
 
     if model == "full":
-        top_ks = accuracy_f2(est_array[:,0], names, (topK,), r_st_labels)
+        top_ks = accuracy_f2(est_array[:,0], names, r_st_labels, (topK,) )
         for name, pred in zip(names, top_ks):
             print(f"Name: {name}, Prediction: {pred}")
     else:

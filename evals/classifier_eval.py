@@ -32,7 +32,7 @@ def accuracy_f(output, target, topk=(1,2,5)):
     return ret, top_keys
 
 
-def accuracy_f2(output, names, topk=(1,2,5), tags_inv):
+def accuracy_f2(output, names, tags_inv, topk=(1,2,5)):
     maxk = max(topk)
     topkeys, pred = output.topk(maxk, dim=1, largest=True, sorted=True)
     topkeys = topkeys.numpy().tolist()

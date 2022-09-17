@@ -1,7 +1,5 @@
 import os
 
-
-
 import torch
 from torchaudio_augmentations import Compose, RandomResizedCrop
 import pytorch_lightning as pl
@@ -9,10 +7,10 @@ from pytorch_lightning.callbacks import EarlyStopping
 from pytorch_lightning import Trainer
 
 
-from .models import SampleCNN
+from models import SampleCNN
 
 
-from .utils import (
+from utils import (
     load_encoder_checkpoint, 
     load_finetuner_checkpoint
 )
@@ -22,7 +20,7 @@ from collections import OrderedDict
 
 from simclr import SimCLR
 
-from .modules import RegressionRecomend
+from modules import RegressionRecomend
 
 
 from data import ContrastiveDataset
