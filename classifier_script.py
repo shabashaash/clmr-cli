@@ -20,14 +20,14 @@ from collections import OrderedDict
 
 from simclr import SimCLR
 
-from .modules import LinearEvaluation
+from modules import LinearEvaluation
 
 
-from .data import ContrastiveDataset
-from .datasets.playlists import PLAYLISTS
-from .datasets.audio import AUDIO
-from .datasets.eval_dataset import EvalDataset
-from .datasets.test_dataset import TestDataset
+from data import ContrastiveDataset
+from datasets.playlists import PLAYLISTS
+from datasets.audio import AUDIO
+from datasets.eval_dataset import EvalDataset
+from datasets.test_dataset import TestDataset
 from torch.utils.data import DataLoader
 
 
