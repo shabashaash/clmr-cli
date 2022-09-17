@@ -1,7 +1,7 @@
 import argparse
 from pytorch_lightning import Trainer
-import classifier_script.main as cmain
-import recomender_script.main as rmain
+import .classifier_script.main as cmain
+import .recomender_script.main as rmain
 
 if __name__ == "__main__":
 
