@@ -167,7 +167,7 @@ def main(args):
             module.encoder,
             module.model,
             eval_dataset,
-            device=args.accelerator,
+            args.accelerator,
             r_st_labels
         ) )
         
