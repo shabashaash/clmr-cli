@@ -56,8 +56,8 @@ def main(args):
             r_st_labels[v] = i
     else:
         for i,v in enumerate(glob(args.playlist_paths+"/*")):
-        st_labels[i] = v
-        r_st_labels[v] = i
+            st_labels[i] = v
+            r_st_labels[v] = i
 
     n_classes = len(st_labels)
 
