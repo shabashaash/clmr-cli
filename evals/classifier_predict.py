@@ -8,7 +8,11 @@ def stable_encoding(batch, encoder):
     for cutted in ld:
         for out in encoder(cutted):
             h0.append(out)
+        
     h0 = torch.stack(h0)
+
+    print("h0", h0)
+
     h0 = torch.squeeze(h0, 1)
 
     return h0
@@ -41,7 +45,9 @@ def c_predict(
 
     with torch.no_grad():
         for batch, name in tqdm(test_dataset):
+
             batch = batch.to(device)
+            print("batch", batch)
             output = stable_encoding(batch, encoder)
             print("output_ml", output)
             output = finetuned_head(output)
