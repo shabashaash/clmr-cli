@@ -7,3 +7,4 @@ setuptools==59.5.0
 pytorch-lightning==1.6.5
 soundfile==0.10.3.post1
 sklearn
+glob
