@@ -15,9 +15,16 @@ def stable_encoding(batch, encoder):
 def accuracy_f2(output, names, r_st_labels, topk=(1,2,5)):
     maxk = max(topk)
     topkeys, pred = output.topk(maxk, dim=1, largest=True, sorted=True)
-    topkeys = topkeys.numpy().tolist()
+
+    print("pred", pred)
+    print("r_st_labels",r_st_labels)
+    # topkeys = topkeys.numpy().tolist()
+
     top_keys = {}
     for i,v in enumerate(pred.numpy().tolist()):
+
+        print(i, names[i], tag_idx)
+
         top_keys[names[i]] = [r_st_labels[tag_idx] for tag_idx in v]
     return top_keys
 
@@ -55,9 +62,6 @@ def c_predict(
     
     
     est_array = torch.stack(est_array, dim=0).cpu()
-
-    print("est_array", est_array)
-
     top_ks = accuracy_f2(est_array, names, r_st_labels, (topK,))
 
     for name, pred in zip(names, top_ks):
