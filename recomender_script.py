@@ -55,8 +55,9 @@ def main(args):
             r_st_labels[v] = i
     else:
         for i,v in enumerate(sorted(glob(args.playlist_paths+"/*"))):
-            st_labels[i] = v
-            r_st_labels[v] = i
+            label = v.split('/')[-1].split('.')[0]
+            st_labels[i] = label
+            r_st_labels[label] = i
 
 
     encoder = SampleCNN(
