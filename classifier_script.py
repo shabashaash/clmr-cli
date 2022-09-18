@@ -48,7 +48,6 @@ def main(args):
     if (not os.path.exists(args.playlist_paths) or len(glob(args.playlist_paths+"/*")) == 0) and not os.path.exists(args.labels_file_path):
         raise FileNotFoundError("Playlists folder does not exist or empty.")
 
-
     st_labels = {}
     r_st_labels = {}
 
@@ -107,6 +106,14 @@ def main(args):
 
 
     if args.mode == "train":
+
+        
+        if not os.path.exists(args.save_checkpoint_path):
+            print(f"Can't find save_checkpoint folder {args.save_checkpoint_path}, creating one.")
+            os.mkdir(args.save_checkpoint_path)
+
+
+
         train_transform = [RandomResizedCrop(n_samples=args.audio_length)]
 
         train_dataset = PLAYLISTS(root = args.dataset_dir, subset="full", playlist_paths = args.playlist_paths, st_labels = r_st_labels, src_ext_audio = args.src_ext_audio)

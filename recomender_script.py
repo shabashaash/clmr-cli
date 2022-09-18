@@ -114,6 +114,12 @@ def main(args):
         print("Loaded recomender checkpoint.")
     
     if args.mode == "train":
+
+
+        if not os.path.exists(args.save_checkpoint_path):
+            print(f"Can't find save_checkpoint folder {args.save_checkpoint_path}, creating one.")
+            os.mkdir(args.save_checkpoint_path)
+
         train_transform = [RandomResizedCrop(n_samples=args.audio_length)]
 
         train_dataset = RECOMENDATIONS(root = args.dataset, subset="full", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)

@@ -97,3 +97,6 @@ def c_evaluate(
     print(classification_report(gt_array, est_array, target_names=list(st_labels.values())))
     
     return {'1,2,5 | ':top_ks_scores}
+
+
+    #!!python main.py --model "classes" --mode "eval" --dataset_dir "/kaggle/input/trackswav/converted" --playlist_paths "/kaggle/input/textplaylists/Converted" --accelerator "cuda:0" --classifier_checkpoint_path "/kaggle/input/mine-checkpoints/finetuner_with18gb_78_711.ckpt" --checkpoint_path "/kaggle/input/mine-checkpoints/encoder_1536_6148.ckpt" --labels_file_path "/kaggle/working/clmr-cli/labels.txt" или без labels_file_path 
