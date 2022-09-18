@@ -97,7 +97,7 @@ def r_predict(
         for name, pred in zip(names, est_array):
             print(f"Name: {name}, Prediction: {pred}")
 
-    return dict(zip(names, est_array))
+    return
 
 
 
