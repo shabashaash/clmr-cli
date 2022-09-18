@@ -23,11 +23,6 @@ class AUDIO(Dataset):
 
         self._path = root
         self._src_ext_audio = src_ext_audio
-
-        # self.fl = glob(
-        #     os.path.join(self._path, "**", "*{}".format(self._src_ext_audio)),
-        #     recursive=True,
-        # )
         self.fl = glob(self._path+"/*")
         if len(self.fl) == 0:
             raise RuntimeError(
@@ -48,7 +43,6 @@ class AUDIO(Dataset):
             Tuple [Tensor, Tensor]: ``(waveform, label)``
         """
         audio, _ = torchaudio.load(self.file_path(n))
-        # audio, _ = self.load(n)
         label = []
         return audio, label, self.file_path(n)
 
