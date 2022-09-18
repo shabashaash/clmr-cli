@@ -133,14 +133,14 @@ def main(args):
 
         train_loader = DataLoader(
             contrastive_train_dataset,
-            batch_size=32,#args.finetuner_batch_size,
+            batch_size=args.extract_batch_size,
             num_workers=args.workers,
             shuffle=True,
         )
 
         valid_loader = DataLoader(
             contrastive_valid_dataset,
-            batch_size=32,#args.finetuner_batch_size,
+            batch_size=args.extract_batch_size,
             num_workers=args.workers,
             shuffle=True,
         )
@@ -149,7 +149,7 @@ def main(args):
         train_representations_dataset = module.extract_representations(train_loader)
         train_loader = DataLoader(
             train_representations_dataset,
-            batch_size=32,#args.batch_size,
+            batch_size=args.batch_size,
             num_workers=args.workers,
             shuffle=True,
         )
@@ -157,7 +157,7 @@ def main(args):
         valid_representations_dataset = module.extract_representations(valid_loader)
         valid_loader = DataLoader(
             valid_representations_dataset,
-            batch_size=32,#args.batch_size,
+            batch_size=args.batch_size,
             num_workers=args.workers,
             shuffle=False,
         )

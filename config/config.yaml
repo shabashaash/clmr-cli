@@ -6,10 +6,12 @@ dataset_dir: "./data"
 src_ext_audio: ".wav"
 # train options
 seed: 42
-batch_size: 48
+batch_size: 32
 # max_epochs: 200
 # dataset: "playlists" 
 supervised: False # train with supervised baseline
+extract_batch_size: 32
+
 
 # SimCLR model options
 projection_dim: 64 #128? # Projection dim. of SimCLR projector 
