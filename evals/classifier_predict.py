@@ -56,8 +56,5 @@ def c_predict(
     
     est_array = torch.stack(est_array, dim=0).cpu()
     top_ks = accuracy_f2(est_array, names, st_labels, (topK,))
-
-    for name, pred in zip(names, top_ks):
-        print(f"Name: {name}, Prediction: {top_ks}")
-
-    return dict(zip(names, top_ks))
+    print(top_ks)
+    return top_ks
