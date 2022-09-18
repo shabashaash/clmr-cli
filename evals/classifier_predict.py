@@ -43,15 +43,11 @@ def c_predict(
         for batch, name in tqdm(test_dataset):
             batch = batch.to(device)
             output = stable_encoding(batch, encoder)
+            print("output_ml", output)
             output = finetuned_head(output)
             output = torch.sigmoid(output)
-
-
             print("output", output)
-
-
-            track_prediction = output.mean(dim=0)
-            est_array.append(track_prediction)
+            est_array.append(output)
             names.append(name)
     
     
