@@ -109,9 +109,7 @@ class LinearEvaluation(LightningModule):
         for x, y in tqdm(dataloader):
             with torch.no_grad():
                 representations.append(self.encoder(x))
-                ys.append(ys)
-        print(ys)
-        print(representations)
+                ys.append(y)
         if len(representations) > 1:
             representations = torch.cat(representations, dim=0)
             ys = torch.cat(ys, dim=0)
