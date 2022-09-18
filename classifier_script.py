@@ -7,6 +7,8 @@ from torchaudio_augmentations import Compose, RandomResizedCrop
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping
 from pytorch_lightning import Trainer
+from pytorch_lightning.callbacks import ModelCheckpoint
+
 
 
 from models import SampleCNN
@@ -156,10 +158,13 @@ def main(args):
         early_stop_callback = EarlyStopping(
             monitor="Valid/loss", patience=20, verbose=True, mode="min"
         )
+        checkpoint_callback = ModelCheckpoint(
+            dirpath=args.save_checkpoint_path, save_top_k=1, monitor="val_loss"
+        )
         trainer = Trainer.from_argparse_args(
             args,
             max_epochs=-1,#args.finetuner_max_epochs,
-            callbacks=[early_stop_callback],
+            callbacks=[early_stop_callback, checkpoint_callback],
             accelerator=args.accelerator, 
             log_every_n_steps=1,
         )
