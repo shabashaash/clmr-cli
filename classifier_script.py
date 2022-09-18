@@ -178,7 +178,7 @@ def main(args):
             module.model,
             eval_dataset,
             args.accelerator,
-            r_st_labels
+            st_labels
         ) )
         
     elif args.mode == "predict":
