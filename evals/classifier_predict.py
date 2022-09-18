@@ -47,6 +47,9 @@ def c_predict(
             output = torch.sigmoid(output)
 
 
+            print("output", output)
+
+
             track_prediction = output.mean(dim=0)
             est_array.append(track_prediction)
             names.append(name)
