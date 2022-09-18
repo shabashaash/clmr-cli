@@ -50,7 +50,7 @@ def main(args):
     r_st_labels = {}
 
     if os.path.exists(args.labels_file_path):
-        for i,v in enumerate(open(args.labels_file_path, encoding="utf-8").read().split('/n')):
+        for i,v in enumerate(open(args.labels_file_path, encoding="utf-8").readlines()):
             st_labels[i] = v
             r_st_labels[v] = i
     else:
