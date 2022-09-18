@@ -59,8 +59,6 @@ def main(args):
             st_labels[i] = v
             r_st_labels[v] = i
 
-    print("st_labels",st_labels)
-
     n_classes = len(st_labels)
 
 

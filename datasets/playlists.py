@@ -19,7 +19,7 @@ class PLAYLISTS(Dataset):
         
         super(PLAYLISTS, self).__init__(root)
         self._src_ext_audio = src_ext_audio
-        self._playlist_paths = glob(playlist_paths)
+        self._playlist_paths = glob(playlist_paths+"/*")
         
 
         self.true_paths = set(glob(root+"/*"+src_ext_audio))
