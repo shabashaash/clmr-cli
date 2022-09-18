@@ -8,18 +8,8 @@ def stable_encoding(batch, encoder):
     for cutted in ld:
         for out in encoder(cutted):
             h0.append(out)
-
-    print("h01", h0, len(h0), len(h0[0]))
-
-
     h0 = torch.stack(h0)
-
-    print("h02", h0)
-
     h0 = torch.squeeze(h0, 1)
-
-    print("h03", h0)
-
     return h0
 
 def accuracy_f2(output, names, r_st_labels, topk=(1,2,5)):
@@ -52,19 +42,21 @@ def c_predict(
         for batch, name in tqdm(test_dataset):
 
             batch = batch.to(device)
-            print("batch", batch)
+
             output = stable_encoding(batch, encoder)
-            print("output_ml", output)
+
             output = finetuned_head(output)
             output = torch.sigmoid(output)
-            print("output", output)
-            est_array.append(output)
+
+
+            track_prediction = output.mean(dim=0)
+            est_array.append(track_prediction)
             names.append(name)
     
     
     est_array = torch.stack(est_array, dim=0).cpu()
 
-    print("est_array",est_array)
+    print("est_array", est_array)
 
     top_ks = accuracy_f2(est_array, names, r_st_labels, (topK,))
 
