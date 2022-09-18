@@ -192,5 +192,5 @@ def main(args):
             predict_dataset,
             args.accelerator,
             args.topK,
-            r_st_labels
+            st_labels
         ))
