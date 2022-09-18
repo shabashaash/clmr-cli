@@ -79,7 +79,7 @@ class LinearEvaluation(LightningModule):
     def configure_optimizers(self) -> dict:
         optimizer = torch.optim.Adam(
             self.model.parameters(),
-            lr=self.hparams.finetuner_learning_rate,
+            lr=self.hparams.classifier_learning_rate,
             weight_decay=self.hparams.weight_decay,
         )
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(

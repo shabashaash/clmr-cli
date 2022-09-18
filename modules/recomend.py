@@ -388,7 +388,7 @@ class RegressionRecomend(LightningModule):
         
         optimizer = torch.optim.Adam(
             all_params,#all_params,#self.model.parameters(),
-            lr=self.hparams.finetuner_learning_rate,
+            lr=self.hparams.recomender_learning_rate,
             weight_decay=self.hparams.weight_decay
         )
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
