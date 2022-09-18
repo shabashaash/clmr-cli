@@ -28,7 +28,7 @@ class AUDIO(Dataset):
         #     os.path.join(self._path, "**", "*{}".format(self._src_ext_audio)),
         #     recursive=True,
         # )
-        self.fl = glob(self._path)
+        self.fl = glob(self._path+"/*")
         if len(self.fl) == 0:
             raise RuntimeError(
                 "Dataset not found. Please place the audio files in the {} folder.".format(
