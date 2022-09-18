@@ -24,7 +24,7 @@ temperature: 0.5 # see appendix B.7.: Optimal temperature under different batch 
 
 # reload options
 checkpoint_path: "" # set to the directory containing `checkpoint_##.tar`
-
+save_checkpoint_path: ""
 # (classifier) logistic regression options
 classifier_mlp: 0
 classifier_checkpoint_path: ""
