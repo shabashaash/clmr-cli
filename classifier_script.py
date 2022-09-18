@@ -52,8 +52,8 @@ def main(args):
 
     if os.path.exists(args.labels_file_path):
         for i,v in enumerate(open(args.labels_file_path, encoding="utf-8").readlines()):
-            st_labels[i] = v
-            r_st_labels[v] = i
+            st_labels[i] = v.rstrip()
+            r_st_labels[v.rstrip()] = i
     else:
         for i,v in enumerate(sorted(glob(args.playlist_paths+"/*"))):
             label = v.split('/')[-1].split('.')[0]
