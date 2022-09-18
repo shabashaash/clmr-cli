@@ -2,7 +2,7 @@ import os
 from glob import glob
 from torch import Tensor
 from typing import Tuple
-
+import torchaudio
 
 from .dataset import Dataset
 
@@ -47,7 +47,8 @@ class AUDIO(Dataset):
         Returns:
             Tuple [Tensor, Tensor]: ``(waveform, label)``
         """
-        audio, _ = self.load(n)
+        audio, _ = torchaudio.load(self.file_path(n))
+        # audio, _ = self.load(n)
         label = []
         return audio, label, self.file_path(n)
 
