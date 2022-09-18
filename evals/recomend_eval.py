@@ -42,7 +42,7 @@ def r_evaluate(
     with torch.no_grad():
         for batch, label, name in tqdm(eval_dataset):        
             batch = batch.to(device)
-            h0 = stable_encoding(batch, encoder)
+            h0 = stable_encoding(batch, whole_model.encoder)
 
 #!--------------------------------------------------------------------!            
 #             classes = whole_model.classifier_head(h0)
