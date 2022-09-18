@@ -79,7 +79,8 @@ def r_predict(
                 est_array.append(track_prediction)
 
             names.append(name)
-    print("est_array.shape",est_array.shape)
+    print("est_array.shape",len(est_array), est_array[0].shape)
+
     est_array = torch.stack(est_array, dim=0).cpu()   
 
 
