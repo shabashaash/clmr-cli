@@ -8,3 +8,8 @@ pytorch-lightning==1.6.5
 soundfile==0.10.3.post1
 sklearn
 glob
+tqdm
+torchmetrics
+numpy
+itertools
+pyyaml
