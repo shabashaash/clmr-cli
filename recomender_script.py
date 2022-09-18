@@ -172,7 +172,7 @@ def main(args):
             monitor="Valid/loss", patience=20, verbose=False, mode="min"
         )
         checkpoint_callback = ModelCheckpoint(
-            dirpath=args.save_checkpoint_path, save_top_k=1, monitor="val_loss"
+            dirpath=args.save_checkpoint_path, save_top_k=1, monitor="Valid/loss"
         )
         trainer = Trainer.from_argparse_args(
             args,
