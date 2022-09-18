@@ -92,6 +92,12 @@ def main(args):
     
     if args.classifier_checkpoint_path:
         state_dict = load_finetuner_checkpoint(args.classifier_checkpoint_path)
+
+        classes_count = list(state_dict.values())[-1].shape[0]
+
+        if classes_count != len(st_labels):
+            raise ValueError("Classes count from checkpoint != provided classes count.")
+
         module.model.load_state_dict(state_dict)
 
     print("Loaded classifier checkpoint.")
@@ -100,8 +106,8 @@ def main(args):
     if args.mode == "train":
         train_transform = [RandomResizedCrop(n_samples=args.audio_length)]
 
-        train_dataset = PLAYLISTS(root = args.dataset_dir, subset="full", playlist_paths = args.playlist_paths, st_labels = st_labels, src_ext_audio = args.src_ext_audio)
-        valid_dataset = PLAYLISTS(root = args.dataset_dir, subset="valid", playlist_paths = args.playlist_paths, st_labels = st_labels, src_ext_audio = args.src_ext_audio)
+        train_dataset = PLAYLISTS(root = args.dataset_dir, subset="full", playlist_paths = args.playlist_paths, st_labels = r_st_labels, src_ext_audio = args.src_ext_audio)
+        valid_dataset = PLAYLISTS(root = args.dataset_dir, subset="valid", playlist_paths = args.playlist_paths, st_labels = r_st_labels, src_ext_audio = args.src_ext_audio)
         
         contrastive_train_dataset = ContrastiveDataset(
             train_dataset,
@@ -161,7 +167,7 @@ def main(args):
     
     elif args.mode == "eval":
         print("Evaluating recomend.")
-        eval_dataset = PLAYLISTS(root = args.dataset_dir, subset="test", playlist_paths = args.playlist_paths, st_labels = st_labels, src_ext_audio = args.src_ext_audio)
+        eval_dataset = PLAYLISTS(root = args.dataset_dir, subset="test", playlist_paths = args.playlist_paths, st_labels = r_st_labels, src_ext_audio = args.src_ext_audio)
         eval_dataset = EvalDataset(
             eval_dataset,
             input_shape=(1, args.audio_length),

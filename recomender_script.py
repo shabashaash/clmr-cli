@@ -54,7 +54,7 @@ def main(args):
             st_labels[i] = v
             r_st_labels[v] = i
     else:
-        for i,v in enumerate(glob(args.playlist_paths+"/*")):
+        for i,v in enumerate(sorted(glob(args.playlist_paths+"/*"))):
             st_labels[i] = v
             r_st_labels[v] = i
 
@@ -199,7 +199,7 @@ def main(args):
             args.accelerator,
             args.model,
             args.topK,
-            r_st_labels
+            st_labels
         ))
 
 
