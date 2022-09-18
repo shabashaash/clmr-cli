@@ -80,7 +80,7 @@ def r_predict(
 
             if model == "full":
                 est_array.append(track_prediction)
-                classes_array.append(classes)
+                classes_array.append(classes.mean(dim=0))
             elif model == "recomend":
                 est_array.append(track_prediction)
 
