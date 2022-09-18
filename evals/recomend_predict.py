@@ -33,6 +33,11 @@ def r_predict(
     st_labels
 ) -> dict:
     est_array = []
+
+    classes_array = []
+
+
+
     names = []
     
     whole_model = whole_model.to(device)
@@ -74,23 +79,19 @@ def r_predict(
             track_prediction = torch.sigmoid(whole_model.model(h)).mean(dim=0) #output.mean(dim=0)
 
             if model == "full":
-                est_array.append([classes, track_prediction])
+                est_array.append(track_prediction)
+                classes_array.append(classes)
             elif model == "recomend":
                 est_array.append(track_prediction)
 
             names.append(name)
-            
-    # print("est_array.shape",len(est_array), len(est_array[0]), )
 
-    # est_array = torch.stack(est_array, dim=0).cpu() 
-    est_array = est_array.cpu()  
-
-    # print("est_array.shape",len(est_array), est_array[0].shape)
-
+    est_array = torch.stack(est_array, dim=0).cpu()
     if model == "full":
-        top_ks = accuracy_f2(est_array[:,0], names, st_labels, (topK,) )
+        classes_array = torch.stack(classes_array, dim=0).cpu()
+        top_ks = accuracy_f2(classes_array, names, st_labels, (topK,) )
         print(top_ks)
-        for name, pred in zip(names, est_array[:,1]):
+        for name, pred in zip(names, est_array):
             print(f"Name: {name}, Prediction: {pred}")
     elif model == "recomend":
         for name, pred in zip(names, est_array):
