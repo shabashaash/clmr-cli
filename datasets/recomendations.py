@@ -135,7 +135,7 @@ class RECOMENDATIONS(Dataset):
         """
         audio, _ = self.load(n)
         label = [1 if self.t_mode == (list(self.fl.keys())[n] in self.playlist_info) else 0]
-        return audio, FloatTensor(label)
+        return audio, FloatTensor(label), self.file_path(n)
 
     def __len__(self) -> int:
         return len(self.fl)

@@ -104,13 +104,12 @@ class LinearEvaluation(LightningModule):
             return {"optimizer": optimizer}
 
     def extract_representations(self, dataloader: DataLoader) -> Dataset:
-
         representations = []
         ys = []
         for x, y in tqdm(dataloader):
             with torch.no_grad():
-                h0 = self.encoder(x)
-                representations.append(h0)
+                representations.append(self.encoder(x))
+                ys.append(ys)
 
         if len(representations) > 1:
             representations = torch.cat(representations, dim=0)
