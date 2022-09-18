@@ -86,8 +86,14 @@ def r_predict(
     if model == "full":
         top_ks = accuracy_f2(est_array[:,0], names, st_labels, (topK,) )
         print(top_ks)
-    else:
+        for name, pred in zip(names, est_array[:,1]):
+            print(f"Name: {name}, Prediction: {pred}")
+    elif model == "recomend":
         for name, pred in zip(names, est_array):
             print(f"Name: {name}, Prediction: {pred}")
 
     return dict(zip(names, est_array))
+
+
+
+#! !python main.py --model "recomend" --mode "predict" --predict_folder "/kaggle/input/testtracks" --accelerator "cuda:0" --classifier_checkpoint_path "/kaggle/input/mine-checkpoints/finetuner_with18gb_78_711.ckpt" --checkpoint_path "/kaggle/input/mine-checkpoints/encoder_1536_6148.ckpt" --labels_file_path "/kaggle/working/clmr-cli/labels.txt" --recomender_checkpoint_path "/kaggle/input/mine-checkpoints/recomend_18gb_2_6_1141.ckpt"
