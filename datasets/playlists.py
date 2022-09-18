@@ -136,7 +136,7 @@ class PLAYLISTS(Dataset):
         for label in labels:
             label_bin[self.st_labels[label]] = 1
         
-        return audio, FloatTensor(label_bin), self.data[n][0]
+        return audio, FloatTensor(label_bin)
 
     def __len__(self) -> int:
         return len(self.data)
