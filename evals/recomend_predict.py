@@ -79,11 +79,13 @@ def r_predict(
                 est_array.append(track_prediction)
 
             names.append(name)
-    print("est_array.shape",len(est_array), est_array[0].shape)
+            
+    # print("est_array.shape",len(est_array), len(est_array[0]), )
 
-    est_array = torch.stack(est_array, dim=0).cpu()   
+    # est_array = torch.stack(est_array, dim=0).cpu() 
+    est_array = est_array.cpu()  
 
-    print("est_array.shape",len(est_array), est_array[0].shape)
+    # print("est_array.shape",len(est_array), est_array[0].shape)
 
     if model == "full":
         top_ks = accuracy_f2(est_array[:,0], names, st_labels, (topK,) )
