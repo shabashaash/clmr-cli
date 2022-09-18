@@ -74,7 +74,7 @@ def main(args):
 
     state_dict = load_encoder_checkpoint(args.checkpoint_path)
     encoder.load_state_dict(state_dict)
-    # encoder = SimCLR(encoder, args.projection_dim, (n_features))
+    _ = SimCLR(encoder, args.projection_dim, (n_features))
     
 
 
