@@ -55,11 +55,11 @@ def main(args):
             st_labels[i] = v
             r_st_labels[v] = i
     else:
-        for i,v in enumerate(glob(args.playlist_paths+"/*")):
+        for i,v in enumerate(sorted(glob(args.playlist_paths+"/*"))):
             st_labels[i] = v
             r_st_labels[v] = i
 
-    print("paths",glob(args.playlist_paths+"/*"))
+    print("st_labels",st_labels)
 
     n_classes = len(st_labels)
 
@@ -178,9 +178,6 @@ def main(args):
         ) )
         
     elif args.mode == "predict":
-
-        
-
         predict_dataset = AUDIO(root = args.predict_folder, src_ext_audio = args.src_ext_audio)
         predict_dataset = TestDataset(
             predict_dataset,
