@@ -122,8 +122,8 @@ def main(args):
 
         train_transform = [RandomResizedCrop(n_samples=args.audio_length)]
 
-        train_dataset = RECOMENDATIONS(root = args.dataset, subset="full", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
-        valid_dataset = RECOMENDATIONS(root = args.dataset, subset="valid", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
+        train_dataset = RECOMENDATIONS(root = args.dataset_dir, subset="full", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
+        valid_dataset = RECOMENDATIONS(root = args.dataset_dir, subset="valid", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
         
         contrastive_train_dataset = ContrastiveDataset(
             train_dataset,
@@ -185,7 +185,7 @@ def main(args):
         trainer.fit(module, train_loader, valid_loader)
     elif args.mode == "eval":
         print("Evaluating recomend.")
-        eval_dataset = RECOMENDATIONS(root = args.dataset, subset="test", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
+        eval_dataset = RECOMENDATIONS(root = args.dataset_dir, subset="test", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
         eval_dataset = EvalDataset(
             eval_dataset,
             input_shape=(1, args.audio_length),
