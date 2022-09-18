@@ -101,3 +101,5 @@ def r_evaluate(
         "precision":pr,
         "recall":rc
     }
+
+#! !python main.py --model "recomend" --mode "eval" --dataset_dir "/kaggle/input/trackswav/converted" --playlist_path "/kaggle/input/truelabelstext/Default.txt" --accelerator "cuda:0" --classifier_checkpoint_path "/kaggle/input/mine-checkpoints/finetuner_with18gb_78_711.ckpt" --checkpoint_path "/kaggle/input/mine-checkpoints/encoder_1536_6148.ckpt" --labels_file_path "/kaggle/working/clmr-cli/labels.txt" --recomender_checkpoint_path "/kaggle/input/mine-checkpoints/recomend_18gb_2_6_1141.ckpt"
