@@ -73,8 +73,9 @@ def main(args):
     n_features = encoder.fc.in_features  
 
     state_dict = load_encoder_checkpoint(args.checkpoint_path)
-    encoder.load_state_dict(state_dict)
+    
     encoder = SimCLR(encoder, args.projection_dim, n_features)
+    encoder.load_state_dict(state_dict)
 
 
     module = LinearEvaluation(
