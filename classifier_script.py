@@ -177,7 +177,7 @@ def main(args):
         )
         print("Started training recomender.")
         trainer.fit(module, train_loader, valid_loader)
-        #!!python main.py --model "classes" --mode "train" --dataset_dir "/kaggle/input/trackswav/converted" --playlist_paths "/kaggle/input/textplaylists/Converted" --accelerator "cuda:0" --classifier_checkpoint_path "/kaggle/input/mine-checkpoints/finetuner_with18gb_78_711.ckpt" --checkpoint_path "/kaggle/input/mine-checkpoints/encoder_1536_6148.ckpt" --save_checkpoint_path "/kaggle/working/chkpts" --labels_file_path "/kaggle/working/clmr-cli/labels.txt" 
+        #!!python main.py --model "classes" --mode "train" --dataset_dir "/kaggle/input/trackswav/converted" --playlist_paths "/kaggle/input/textplaylists/Converted" --accelerator "cuda:0" --classifier_checkpoint_path "/kaggle/input/mine-checkpoints/finetuner_with18gb_78_711.ckpt" --checkpoint_path "/kaggle/input/mine-checkpoints/encoder_1536_6148.ckpt" --save_checkpoint_path "/kaggle/working/chkpts" (--labels_file_path "/kaggle/working/clmr-cli/labels.txt") 
     
     elif args.mode == "eval":
         print("Evaluating recomend.")
