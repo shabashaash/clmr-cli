@@ -94,7 +94,7 @@ def main(args):
         state_dict = load_finetuner_checkpoint(args.classifier_checkpoint_path)
         module.model.load_state_dict(state_dict)
 
-
+    print("Loaded classifier checkpoint.")
 
 
     if args.mode == "train":
