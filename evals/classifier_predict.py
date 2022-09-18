@@ -58,3 +58,7 @@ def c_predict(
     top_ks = accuracy_f2(est_array, names, st_labels, (topK,))
     print(top_ks)
     return top_ks
+
+
+
+#!python main.py --model "classes" --mode "predict" --predict_folder "/kaggle/input/testtracks" --accelerator "cuda:0" --classifier_checkpoint_path "/kaggle/input/mine-checkpoints/finetuner_with18gb_78_711.ckpt" --checkpoint_path "/kaggle/input/mine-checkpoints/encoder_1536_6148.ckpt" --labels_file_path "/kaggle/working/clmr-cli/labels.txt"

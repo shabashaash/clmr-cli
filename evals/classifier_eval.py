@@ -32,13 +32,12 @@ def accuracy_f(output, target, topk=(1,2,5)):
     return ret, top_keys
 
 
-def accuracy_f2(output, names, tags_inv, topk=(1,2,5)):
+def accuracy_f2(output, names, st_labels, topk=(1,2,5)):
     maxk = max(topk)
-    topkeys, pred = output.topk(maxk, dim=1, largest=True, sorted=True)
-    topkeys = topkeys.numpy().tolist()
+    _, pred = output.topk(maxk, dim=1, largest=True, sorted=True)
     top_keys = {}
     for i,v in enumerate(pred.numpy().tolist()):
-        top_keys[names[i]] = [tags_inv[tag_idx] for tag_idx in v]
+        top_keys[names[i]] = [st_labels[tag_idx] for tag_idx in v]
     return top_keys
 
 
@@ -47,7 +46,7 @@ def c_evaluate(
     finetuned_head,
     eval_dataset,
     device,
-    r_st_labels
+    st_labels
 ) -> dict:
     est_array = []
     gt_array = []
@@ -88,13 +87,13 @@ def c_evaluate(
     print(gt_array.topk(5, dim=1, largest=True, sorted=True))
     
     
-    top_ks = accuracy_f2(est_array, names, r_st_labels)
+    top_ks = accuracy_f2(est_array, names, st_labels)
     print(top_ks,'f2 ACC')
     est_array = (est_array > 0.5).int()
 
     print(metrics.average_precision_score(gt_array, est_array, average="macro"), "pr_auc")
     
     
-    print(classification_report(gt_array, est_array, target_names=list(r_st_labels.values())))
+    print(classification_report(gt_array, est_array, target_names=list(st_labels.values())))
     
     return {'1,2,5 | ':top_ks_scores}
