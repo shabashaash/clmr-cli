@@ -59,6 +59,8 @@ def main(args):
             st_labels[i] = v
             r_st_labels[v] = i
 
+    print("paths",glob(args.playlist_paths+"/*"))
+
     n_classes = len(st_labels)
 
 
