@@ -9,7 +9,7 @@ def stable_encoding(batch, encoder):
         for out in encoder(cutted):
             h0.append(out)
 
-    print("h01", h0, h0.shape)
+    print("h01", h0, len(h0), len(h0[0]))
 
 
     h0 = torch.stack(h0)
