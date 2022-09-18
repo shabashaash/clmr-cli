@@ -176,7 +176,7 @@ def main(args):
         print("Evaluating recomend.")
         eval_dataset = RECOMENDATIONS(root = args.dataset, subset="test", playlist_path = args.playlist_path, t_mode = args.t_mode, src_ext_audio = args.src_ext_audio)
         eval_dataset = EvalDataset(
-            test_dataset,
+            eval_dataset,
             input_shape=(1, args.audio_length),
             transform=None,
         )
