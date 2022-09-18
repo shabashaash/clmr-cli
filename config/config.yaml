@@ -9,7 +9,7 @@ seed: 42
 batch_size: 48
 # max_epochs: 200
 # dataset: "playlists" 
-supervised: 0 # train with supervised baseline
+supervised: False # train with supervised baseline
 
 # SimCLR model options
 projection_dim: 64 #128? # Projection dim. of SimCLR projector 
