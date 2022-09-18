@@ -189,7 +189,7 @@ def main(args):
         print( c_predict(
             module.encoder,
             module.model,
-            eval_dataset,
+            predict_dataset,
             args.accelerator,
             args.topK,
             r_st_labels
