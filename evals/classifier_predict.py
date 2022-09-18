@@ -11,9 +11,11 @@ def stable_encoding(batch, encoder):
         
     h0 = torch.stack(h0)
 
-    print("h0", h0)
+    print("h01", h0)
 
     h0 = torch.squeeze(h0, 1)
+
+    print("h02", h0)
 
     return h0
 
