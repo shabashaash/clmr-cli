@@ -83,6 +83,7 @@ def r_predict(
 
     est_array = torch.stack(est_array, dim=0).cpu()   
 
+    print("est_array.shape",len(est_array), est_array[0].shape)
 
     if model == "full":
         top_ks = accuracy_f2(est_array[:,0], names, st_labels, (topK,) )
