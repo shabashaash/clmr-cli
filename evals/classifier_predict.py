@@ -8,14 +8,17 @@ def stable_encoding(batch, encoder):
     for cutted in ld:
         for out in encoder(cutted):
             h0.append(out)
-        
+
+    print("h01", h0, h0.shape)
+
+
     h0 = torch.stack(h0)
 
-    print("h01", h0)
+    print("h02", h0)
 
     h0 = torch.squeeze(h0, 1)
 
-    print("h02", h0)
+    print("h03", h0)
 
     return h0
 
