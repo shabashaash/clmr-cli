@@ -2,7 +2,7 @@
 
 # Link to the repo of original model: [https://github.com/Spijkervet/CLMR](https://github.com/Spijkervet/CLMR)
 
-This cli interface supports 3 modes of work (model):
+With this cli you can work with:
 
 classes - train/eval/predict only tags (multilabel). Tags loaded from playlists folder.
 
